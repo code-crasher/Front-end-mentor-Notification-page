@@ -1,0 +1,230 @@
+@font-face {
+  font-family: "PlusJakartaSans";
+  src: url(".fonts/PlusJakartaSans-Variable_wght.ttf")
+}
+
+:root {
+  --primary-100: hsl(1, 90%, 64%);
+  --primary-200: hsl(219, 85%, 26%);
+
+  --neutral-100: hsl(0, 0%, 100%);
+  --neutral-200: hsl(210, 60%, 98%);
+  --neutral-300: hsl(211, 68%, 94%);
+  --neutral-400: hsl(224, 21%, 14%);
+  --neutral-500: hsl(219, 14%, 63%);
+
+
+  --ff-primary: "PlusJakartaSans", sans-serif;
+
+  --fs--800: 800;
+  --fs--500: 500;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  cursor: pointer;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+html:focus-within {
+  scroll-behavior: smooth;
+}
+body {
+  width:100vw;
+  height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: var(--ff-primary);
+  font-weight:var(--fs--500);
+  font-size:16px;
+  background: var(--neutral-200);
+  overflow-x:hidden;
+}
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+a {
+  text-decoration: none;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display:block;
+}
+.txt-bold {
+  font-family: var(--ff-primary);
+  font-weight: 800;
+}
+.user-name{
+  margin-inline-end:.5rem;
+}
+.sub-txt {
+  font-family: var(--ff-primary);
+  font-weight: 500;
+  color: var(--neutral-500);
+  margin-top: 0.25rem;
+}
+.container {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height:100vh;
+}
+.card-wrapper{
+  max-width: 70%;
+  height:fit-content;
+  padding: .5rem .75rem;
+  background: var(--neutral-100);
+  border-radius: 6px;
+  box-shadow: 0px 0px 30px var(--neutral-200);
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline:1rem;
+  margin-block-end:1rem;
+}
+.header {
+  display:flex;
+  align-items: center;
+  gap:1rem;
+}
+.header h1{
+  font-size: 1.4rem;
+  font-weight: var(--fs--800)
+  letter-spacing:1rem;
+  color:var(--neutral-400);
+}
+#count__el{
+  text-align: center;
+  padding: 0.1em 0.5em;
+  color: var(--neutral-100);
+  background: var(--primary-200);
+  font-weight: var(--fs--800);
+  border-radius: 6px;
+}
+.card {
+  border-radius: 5px;
+  line-height:1;
+  transition: 100ms ease-in;
+}
+.notification-card {
+  position:relative;
+  display: grid;
+  grid-template-columns: 5% auto;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  margin-block-end:.25rem;
+}
+
+.text__not-read{
+  background-color:var(--neutral-300);
+  border-radius:6px;
+}
+.user-name:hover,
+.user-name:focus{
+  color: var(--primary-200);
+}
+
+.user-text{
+ margin-inline-end:.5rem; 
+}
+.not__read {
+  position: relative;
+  display: inline-flex; 
+}
+.not__read::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  top:0;
+  right:-8px;
+  background: var(--primary-100);
+  border-radius: 50%;
+}
+.card a{
+  font-weight:var(--fs--800);
+  color: var(--neutral-500);
+}
+.card a:hover,
+.card a:focus{
+  color:var(--primary-200);
+}
+.card a:is(:empty){
+  height:8px;
+}
+.link-img img {
+  position: absolute;
+  right:.5rem;
+  top: 0;
+  width: 5%;
+  object-fit:cover;
+}
+.not--read {
+  background: var(--neutral-200);
+}
+.text-msg{
+  border:1px solid var(--neutral-300);
+  padding: .5rem;
+  margin-top:.25rem;
+  border-radius: 6px;
+  line-height: 1.2;
+}
+.text-msg:hover,
+.text-msg:focus{
+ background-color:var(--neutral-300);
+}
+@media (max-width: 500px) {
+  .content-card {
+    max-width: 90%;
+  }
+
+  .notification-card {
+    display: grid;
+    grid-template-columns: 10% auto;
+    width: 100%;
+  }
+  .notification--card--txt {
+    margin-left: 3rem;
+  }
+  .link-img img {
+  right:0;
+  top: 10px;
+  width: 5%;
+  object-fit:cover;
+}
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
